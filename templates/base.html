@@ -18,12 +18,7 @@
 </head>
 
 <body>
-  {% for message in messages %}
-  <div class="alert alert-{{ message.tags }} shadow-lg p-3 alert-dismissible fade show" role="alert">
-    <strong>Message:- </strong> {{ message }}
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-  </div>
-  {% endfor %}
+
   <!-- ================== Navbar goes here =========================== -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
@@ -87,6 +82,17 @@
     </div>
   </nav>
   <!-- =================== End Navbar =================== -->
+
+  <b> {{userabc}} </b>
+  <!-- Django messages  -->
+  {% for message in messages %}
+  <div class="alert alert-{{ message.tags }} shadow-lg p-3 alert-dismissible fade show" role="alert">
+    <strong>Message:- </strong> {{ message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endfor %}
+  <!-- End Django messages  -->
+
   {% block body %}{% endblock body %}
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

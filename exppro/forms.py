@@ -24,7 +24,7 @@ class UserRegisterForm(UserCreationForm):
 
         if user is not None:
             raise ValidationError(
-                'Email-Id is already exists. please try with another one' )
+                'Email-Id is already exists. please try with another one')
 
 
 class LoginForm(AuthenticationForm):

@@ -11,10 +11,12 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <title>Document</title>
+    {% load socialaccount %}
     {% load crispy_forms_tags %}
 </head>
 
 <body>
+    
     {% for message in messages %}
     <div class="alert alert-{{ message.tags }} shadow-lg p-3 alert-dismissible fade show" role="alert">
         <strong>Message:- </strong> {{ message }}
@@ -28,7 +30,16 @@
                 <form action="/login1/" method="post"> {% csrf_token %}
 
                     {{form|crispy}}
-                    <button class="btn btn-primary my-3 " type="submit">Submit </button>
+                    <button class="btn btn-primary my-3 " type="submit">Submit </button> <b>or</b>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-3">
+                          <a class="btn btn-outline-dark" href="{% provider_login_url 'google' %}" role="button" style="text-transform:none">
+                            <img width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+                            Login with Google
+                          </a>
+                        </div>
+                      </div>
                     <div>Need an Account? <a href="/signup1">Signup here</a></div>
                 </form>
             </div>

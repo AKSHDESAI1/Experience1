@@ -3,6 +3,13 @@ from .forms import UserRegisterForm, LoginForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 
+def home(request):
+    userabc = ""
+    if request.user.is_authenticated:
+        userabc = request.user.username
+    return render(request, 'base.html', {"userabc": userabc})
+
+
 def signup1(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
@@ -29,7 +36,7 @@ def login1(request):
 
             return redirect('home')
         
-        return render(request, template_name='account/login.html', context=context)
+       
     form = LoginForm()
     context = {
         'form': form

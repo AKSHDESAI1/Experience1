@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Upload Documnets{% endblock title %}
+
+{% block body %}
+    <form action="/upload/" class="container my-3" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="file" class="form-label">Upload Documents</label>
+            <input class="form-control" name="file" type="file" id="file">
+        </div>
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+
+{% endblock body %}
